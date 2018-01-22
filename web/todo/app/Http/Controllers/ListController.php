@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 
+use Illuminate\Support\Facades\DB;
+
 class ListController extends Controller
 {
     /**
@@ -14,8 +16,8 @@ class ListController extends Controller
      */
     public function show($id)
     {
-      $list = app('db')->select("SELECT * FROM list WHERE id = :id", ['id' => $id])[0];
-      $items = app('db')->select("SELECT * FROM item WHERE list_id = :id", ['id' => $id]);
+      $list = DB::connection()->select("SELECT * FROM list WHERE id = :id", ['id' => $id])[0];
+      $items = DB::connection()->select("SELECT * FROM item WHERE list_id = :id", ['id' => $id]);
       return view('pages.list', ['list' => $list, 'items' => $items]);
     }
 
@@ -26,9 +28,9 @@ class ListController extends Controller
      */
     public function list()
     {
-      $lists = app('db')->select("SELECT * FROM list");
+      $lists = DB::connection()->select("SELECT * FROM list");
       foreach ($lists as $key => $list) {
-        $items = app('db')->select("SELECT * FROM item WHERE list_id = :id", ['id' => $list->id]);
+        $items = DB::connection()->select("SELECT * FROM item WHERE list_id = :id", ['id' => $list->id]);
         $lists[$key]->items = $items;
       }
       return view('pages.lists', ['lists' => $lists]);
