@@ -1,0 +1,25 @@
+main > header {
+  background-color: #837EB1;
+  padding: 1em;
+  margin: 1em;
+}
+
+main > header a {
+  color: white;
+  text-decoration: none;
+}
+
+#content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+article.list {
+  background-color: #FFFAAA;
+  padding: 1em;
+  margin: 1em;
+}
+
+article.list header a {
+  color: black;
+}
