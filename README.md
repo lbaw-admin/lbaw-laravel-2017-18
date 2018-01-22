@@ -5,9 +5,15 @@
     sudo chown -R www-data:www-data web/todo/storage/
     cd web/todo
     composer install
-    cd ../..
+
+## Start    
+
+From project root:    
+    
     docker-compose up
 
-Navigate to
+## Testing
+
+Navigate to:
 
     http://localhost:8080/list
