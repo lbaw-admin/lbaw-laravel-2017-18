@@ -19,13 +19,11 @@ class ItemController extends Controller
    */
   public function create(Request $request, $card_id)
   {
-    if (!Auth::check()) return redirect('/login');
-
-    $card = Card::find($card_id);
-    if (Auth::user()->id != $card->user_id) return "error";
-
     $item = new Item();
     $item->card_id = $card_id;
+
+    $this->authorize('create', $item);
+
     $item->description = $request->input('description');
     $item->save();
 
@@ -40,10 +38,9 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-      if (!Auth::check()) return redirect('/login');
-
       $item = Item::find($id);
-      if (Auth::user()->id != $item->card->user_id) return "error";
+
+      $this->authorize('update', $item);
 
       $item->done = $request->input('done');
       $item->save();

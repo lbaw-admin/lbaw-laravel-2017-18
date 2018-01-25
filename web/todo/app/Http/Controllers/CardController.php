@@ -17,11 +17,9 @@ class CardController extends Controller
      */
     public function show($id)
     {
-      if (!Auth::check()) return redirect('/login');
-
       $card = Card::find($id);
 
-      if (Auth::user()->id != $card->user_id) return redirect('/card');
+      $this->authorize('show', $card);
 
       return view('pages.card', ['card' => $card]);
     }
@@ -34,6 +32,8 @@ class CardController extends Controller
     public function list()
     {
       if (!Auth::check()) return redirect('/login');
+
+      $this->authorize('list', Card::class);
 
       $cards = Auth::user()->cards()->orderBy('id')->get();
 
