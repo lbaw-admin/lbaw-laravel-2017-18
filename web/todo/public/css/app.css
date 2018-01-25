@@ -6,7 +6,7 @@ main > header {
 
 #lists {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 article.list {
@@ -32,4 +32,16 @@ article.list header a {
 #content > form .error{
   font-weight: bold;
   color: red;
+}
+
+#content > form input{
+  background-color: white;
+}
+
+@media (max-width: 70em) {
+  #lists { grid-template-columns: repeat(2, 1fr);  }
+}
+
+@media (max-width: 40em) {
+  #lists { grid-template-columns: 1fr;  }
 }
