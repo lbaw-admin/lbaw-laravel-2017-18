@@ -4,6 +4,10 @@ main > header {
   margin: 1em;
 }
 
+main > header span {
+  color: white;
+}
+
 #lists {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -26,7 +30,7 @@ article.list header a {
   margin: 0 auto;
   padding: 1em;
   max-width: 20em;
-  background-color: #FFFEAB;
+  border: 1px solid #D2A4EE;
 }
 
 #content > form .error{

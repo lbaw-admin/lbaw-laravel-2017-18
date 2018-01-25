@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/milligram.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" src={{ asset('js/app.js') }}>
+    <script type="text/javascript" src={{ asset('js/app.js') }} defer>
 </script>
   </head>
   <body>
@@ -21,7 +21,7 @@
       <header>
         <h1><a href="{{ url('/list') }}">Thingy!</a></h1>
         @if (Auth::check())
-        <a class="button" href="{{ url('/logout') }}"> Logout </a> {{ Auth::user()->name }}
+        <a class="button" href="{{ url('/logout') }}"> Logout </a> <span>{{ Auth::user()->name }}</span>
         @endif
       </header>
       <section id="content">
