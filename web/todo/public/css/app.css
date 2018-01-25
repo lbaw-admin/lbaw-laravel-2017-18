@@ -1,10 +1,25 @@
 main > header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
   background-color: #D2A4EE;
   padding: 1em;
   margin: 1em;
 }
 
+main > header h1 {
+  margin: 0;
+  flex-grow: 1;
+}
+
+main > header a.button {
+  margin: 1em;
+  justify-self: center;
+}
+
 main > header span {
+  margin: 1em;
+  justify-self: center;
   color: white;
 }
 
@@ -14,7 +29,11 @@ main > header span {
 }
 
 article.card {
+  display: flex;
+  flex-direction: column;
+  
   background-color: #FFFEAB;
+
   padding: 1em;
   margin: 1em;
 }
@@ -23,8 +42,17 @@ article.card li {
   list-style-type: none;
 }
 
-article.card input {
+article.card ul {
+  margin: 0;
+}
+
+article.card form {
+  margin: 0;
+}
+
+article.card input[type=text] {
   background-color: white;
+  margin: 0;
 }
 
 #content > form {
@@ -45,6 +73,13 @@ article.card input {
 
 @media (max-width: 70em) {
   #cards { grid-template-columns: repeat(2, 1fr);  }
+  main > header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+  main > header h1{
+    grid-row-end: span 2;
+  }
 }
 
 @media (max-width: 40em) {
