@@ -1,9 +1,10 @@
-@extends('layouts.page')
+@extends('layouts.app')
 
 @section('title', 'Lists')
 
 @section('content')
 
+<section id="lists">
 @foreach ($lists as $list)
   <article class="list">
   <header>
@@ -13,6 +14,7 @@
     @each('partials.item', $list->items, 'item')
   </ul>
   </article>
-  @endforeach
+@endforeach
+</section>
 
 @endsection

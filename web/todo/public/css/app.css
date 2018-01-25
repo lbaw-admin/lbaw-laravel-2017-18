@@ -1,0 +1,35 @@
+main > header {
+  background-color: #D2A4EE;
+  padding: 1em;
+  margin: 1em;
+}
+
+#lists {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+article.list {
+  background-color: #FFFEAB;
+  padding: 1em;
+  margin: 1em;
+}
+
+article.list li {
+  list-style-type: none;
+}
+
+article.list header a {
+}
+
+#content > form {
+  margin: 0 auto;
+  padding: 1em;
+  max-width: 20em;
+  background-color: #FFFEAB;
+}
+
+#content > form .error{
+  font-weight: bold;
+  color: red;
+}

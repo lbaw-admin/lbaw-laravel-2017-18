@@ -11,5 +11,13 @@
 |
 */
 
+Route::get('/', function () {
+    return redirect('list');
+});
+
 Route::get('list', 'ListController@list');
 Route::get('list/{id}', 'ListController@show');
+
+Auth::routes();
+
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
