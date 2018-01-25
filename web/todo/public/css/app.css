@@ -26,6 +26,10 @@ article.list li {
 article.list header a {
 }
 
+article.list input {
+  background-color: white;
+}
+
 #content > form {
   margin: 0 auto;
   padding: 1em;

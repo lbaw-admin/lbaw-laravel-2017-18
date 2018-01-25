@@ -37,7 +37,7 @@ class ListController extends Controller
     {
       if (!Auth::check()) return redirect('/login');
 
-      $lists = Auth::user()->lists()->get();
+      $lists = Auth::user()->lists()->orderBy('id')->get();
 
       return view('pages.lists', ['lists' => $lists]);
     }
