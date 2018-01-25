@@ -2,14 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Item;
-use App\TodoList;
-
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class ListController extends Controller
+class CardController extends Controller
 {
     /**
      * Shows the list for the given ID.
@@ -21,15 +17,15 @@ class ListController extends Controller
     {
       if (!Auth::check()) return redirect('/login');
 
-      $list = TodoList::find($id);
+      $card = Card::find($id);
 
-      if (Auth::user()->id != $list->user_id) return redirect('/list');
+      if (Auth::user()->id != $card->user_id) return redirect('/card');
 
-      return view('pages.list', ['list' => $list]);
+      return view('pages.card', ['card' => $card]);
     }
 
     /**
-     * Shows all lists.
+     * Shows all cards.
      *
      * @return Response
      */
@@ -37,8 +33,8 @@ class ListController extends Controller
     {
       if (!Auth::check()) return redirect('/login');
 
-      $lists = Auth::user()->lists()->orderBy('id')->get();
+      $cards = Auth::user()->cards()->orderBy('id')->get();
 
-      return view('pages.lists', ['lists' => $lists]);
+      return view('pages.cards', ['cards' => $cards]);
     }
 }

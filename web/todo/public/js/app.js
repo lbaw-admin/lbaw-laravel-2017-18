@@ -1,9 +1,9 @@
-let items = document.querySelectorAll('article.list input[type=checkbox]');
+let items = document.querySelectorAll('article.card input[type=checkbox]');
 [].forEach.call(items, function(item) {
   item.addEventListener('change', itemChanged);
 });
 
-let itemCreators = document.querySelectorAll('article.list form');
+let itemCreators = document.querySelectorAll('article.card form');
 [].forEach.call(itemCreators, function(creator) {
   creator.addEventListener('submit', itemCreated);
 });
@@ -27,7 +27,7 @@ function itemCreated(event) {
   event.preventDefault();
   let request = new XMLHttpRequest();
   request.addEventListener('load', addItem);
-  request.open("put", "api/list/" + this.querySelector('input[name=list_id]').value, true);
+  request.open("put", "api/card/" + this.querySelector('input[name=card_id]').value, true);
   request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(encodeForAjax({description: this.querySelector('input[name=description]').value}));
@@ -35,13 +35,13 @@ function itemCreated(event) {
 
 function updateItem() {
   let item = JSON.parse(this.responseText);
-  let element = document.querySelector('article.list input[type=checkbox][value="' + item.id + '"]');
+  let element = document.querySelector('article.card input[type=checkbox][value="' + item.id + '"]');
   element.checked = item.done == "true";
 }
 
 function addItem() {
   let item = JSON.parse(this.responseText);
-  let input = document.querySelector('article.list input[type=hidden][value="' + item.todo_list_id + '"]');
+  let input = document.querySelector('article.card input[type=hidden][value="' + item.card_id + '"]');
   let form = input.parentNode;
   let ul = form.previousElementSibling;
 

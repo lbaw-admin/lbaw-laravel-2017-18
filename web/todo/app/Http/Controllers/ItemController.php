@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Item;
-use App\TodoList;
+use App\Card;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,15 +17,15 @@ class ItemController extends Controller
    * @param  int  $list_id
    * @return Response
    */
-  public function create(Request $request, $list_id)
+  public function create(Request $request, $card_id)
   {
     if (!Auth::check()) return redirect('/login');
 
-    $list = TodoList::find($list_id);
-    if (Auth::user()->id != $list->user_id) return "error";
+    $card = Card::find($card_id);
+    if (Auth::user()->id != $card->user_id) return "error";
 
     $item = new Item();
-    $item->todo_list_id = $list_id;
+    $item->card_id = $card_id;
     $item->description = $request->input('description');
     $item->save();
 
@@ -33,7 +33,7 @@ class ItemController extends Controller
   }
 
     /**
-     * Updates the done state of an individual item.
+     * Updates the state of an individual item.
      *
      * @param  int  $id
      * @return Response
@@ -43,25 +43,11 @@ class ItemController extends Controller
       if (!Auth::check()) return redirect('/login');
 
       $item = Item::find($id);
-      if (Auth::user()->id != $item->list->user_id) return "error";
+      if (Auth::user()->id != $item->card->user_id) return "error";
 
       $item->done = $request->input('done');
       $item->save();
 
       return $item;
-    }
-
-    /**
-     * Shows all lists.
-     *
-     * @return Response
-     */
-    public function list()
-    {
-      if (!Auth::check()) return redirect('/login');
-
-      $lists = Auth::user()->lists()->get();
-
-      return view('pages.lists', ['lists' => $lists]);
     }
 }

@@ -12,15 +12,15 @@
 */
 
 Route::get('/', function () {
-    return redirect('list');
+    return redirect('cards');
 });
 
 // Lists
-Route::get('list', 'ListController@list');
-Route::get('list/{id}', 'ListController@show');
+Route::get('cards', 'CardController@list');
+Route::get('cards/{id}', 'CardController@show');
 
 // API
-Route::put('api/list/{list_id}/', 'ItemController@create');
+Route::put('api/card/{card_id}/', 'ItemController@create');
 Route::post('api/item/{id}', 'ItemController@update');
 
 // Authentication

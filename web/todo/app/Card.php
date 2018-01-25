@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Item;
-
-class TodoList extends Model
+class Card extends Model
 {
+  public $timestamps  = false;
+
   public function user() {
     return $this->belongsTo('App\User');
   }

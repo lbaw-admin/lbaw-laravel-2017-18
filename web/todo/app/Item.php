@@ -8,7 +8,7 @@ class Item extends Model
 {
   public $timestamps  = false;
 
-  public function list() {
-    return $this->belongsTo('App\TodoList', 'todo_list_id');
+  public function card() {
+    return $this->belongsTo('App\Card');
   }
 }

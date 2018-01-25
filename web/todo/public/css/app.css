@@ -8,25 +8,22 @@ main > header span {
   color: white;
 }
 
-#lists {
+#cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-article.list {
+article.card {
   background-color: #FFFEAB;
   padding: 1em;
   margin: 1em;
 }
 
-article.list li {
+article.card li {
   list-style-type: none;
 }
 
-article.list header a {
-}
-
-article.list input {
+article.card input {
   background-color: white;
 }
 
@@ -47,9 +44,9 @@ article.list input {
 }
 
 @media (max-width: 70em) {
-  #lists { grid-template-columns: repeat(2, 1fr);  }
+  #cards { grid-template-columns: repeat(2, 1fr);  }
 }
 
 @media (max-width: 40em) {
-  #lists { grid-template-columns: 1fr;  }
+  #cards { grid-template-columns: 1fr;  }
 }
