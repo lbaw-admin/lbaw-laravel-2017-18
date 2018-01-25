@@ -8,7 +8,7 @@
   @foreach ($cards as $card)
     <article class="card">
     <header>
-      <h2><a href="card/{{ $card->id }}">{{ $card->name }}</a></h2>
+      <h2><a href="cards/{{ $card->id }}">{{ $card->name }}</a></h2>
     </header>
     <ul>
       @each('partials.item', $card->items()->orderBy('id')->get(), 'item')

@@ -17,7 +17,7 @@ function encodeForAjax(data) {
 function itemChanged() {
   let request = new XMLHttpRequest();
   request.addEventListener('load', updateItem);
-  request.open("post", "api/item/" + this.value, true);
+  request.open("post", "(/api/item/" + this.value, true);
   request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(encodeForAjax({done: this.checked}));
@@ -27,7 +27,7 @@ function itemCreated(event) {
   event.preventDefault();
   let request = new XMLHttpRequest();
   request.addEventListener('load', addItem);
-  request.open("put", "api/card/" + this.querySelector('input[name=card_id]').value, true);
+  request.open("put", "/api/card/" + this.querySelector('input[name=card_id]').value, true);
   request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(encodeForAjax({description: this.querySelector('input[name=description]').value}));
