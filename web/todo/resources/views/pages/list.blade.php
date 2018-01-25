@@ -8,7 +8,7 @@
     <h2>{{ $list->name }}</h2>
   </header>
   <ul>
-    @each('partials.item', $items, 'item')
+    @each('partials.item', $list->items()->get(), 'item')
   </ul>
   </article>
 @endsection

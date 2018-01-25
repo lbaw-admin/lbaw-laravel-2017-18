@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Item;
+use App\TodoList;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -17,16 +19,13 @@ class ListController extends Controller
      */
     public function show($id)
     {
-      if (!Auth::check())
-        return redirect('/login');
+      if (!Auth::check()) return redirect('/login');
 
-      $list = DB::connection()->select("SELECT * FROM list WHERE id = :id", ['id' => $id])[0];
+      $list = TodoList::find($id);
 
-      if (Auth::user()->id != $list->user_id)
-        return redirect('/list');
+      if (Auth::user()->id != $list->user_id) return redirect('/list');
 
-      $items = DB::connection()->select("SELECT * FROM item WHERE list_id = :id", ['id' => $id]);
-      return view('pages.list', ['list' => $list, 'items' => $items]);
+      return view('pages.list', ['list' => $list]);
     }
 
     /**
@@ -36,20 +35,10 @@ class ListController extends Controller
      */
     public function list()
     {
-      if (!Auth::check())
-        return redirect('/login');
+      if (!Auth::check()) return redirect('/login');
 
-      $lists = DB::connection()->select("SELECT *
-                                         FROM list
-                                         WHERE user_id = :user_id",
-                                         ['user_id' => Auth::user()->id]);
-      foreach ($lists as $key => $list) {
-        $items = DB::connection()->select("SELECT *
-                                           FROM item
-                                           WHERE list_id = :id",
-                                           ['id' => $list->id]);
-        $lists[$key]->items = $items;
-      }
+      $lists = Auth::user()->lists()->get();
+
       return view('pages.lists', ['lists' => $lists]);
     }
 }

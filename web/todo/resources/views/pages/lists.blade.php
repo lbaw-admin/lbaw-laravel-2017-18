@@ -11,7 +11,7 @@
       <h2><a href="list/{{ $list->id }}">{{ $list->name }}</a></h2>
     </header>
     <ul>
-      @each('partials.item', $list->items, 'item')
+      @each('partials.item', $list->items()->get(), 'item')
     </ul>
     </article>
   @endforeach
