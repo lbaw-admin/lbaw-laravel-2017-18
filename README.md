@@ -1,18 +1,16 @@
 ## Install
 
     git clone git@github.com:arestivo/lbaw-laravel.git
-    cd lbaw-laravel/
-    sudo chown -R www-data:www-data web/todo/storage/
-    cd web/todo
+    cd lbaw-laravel/web/todo
     composer install
 
-## Start    
+## Start
 
-From project root:    
-    
+From project root:
+
     docker-compose up
 
-## Testing
+## Usage
 
 Navigate to:
 
