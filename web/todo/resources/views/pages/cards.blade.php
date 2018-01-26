@@ -15,10 +15,15 @@
     </ul>
     <form class="new_item">
       <input type="hidden" name="card_id" value="{{ $card->id }}">
-      <input type="text" name="description">
+      <input type="text" name="description" placeholder="new item">
     </form>
     </article>
   @endforeach
+  <article class="card">
+    <form class="new_card">
+      <input type="text" name="name" placeholder="new card">
+    </form>
+  </article>
 </section>
 
 @endsection

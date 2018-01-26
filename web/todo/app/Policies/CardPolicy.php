@@ -12,22 +12,17 @@ class CardPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     public function show(User $user, Card $card)
     {
       return $user->id == $card->user_id;
     }
 
     public function list(User $user)
+    {
+      return Auth::check();
+    }
+
+    public function create(User $user)
     {
       return Auth::check();
     }

@@ -12,16 +12,6 @@ class ItemPolicy
 {
     use HandlesAuthorization;
 
-    /**
-     * Create a new policy instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     public function create(User $user, Item $item)
     {
       return $user->id == $item->card->user_id;
