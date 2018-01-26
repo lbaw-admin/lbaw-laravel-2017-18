@@ -42,6 +42,10 @@ article.card li {
   list-style-type: none;
 }
 
+article.card input[checked] + span {
+  text-decoration: line-through;
+}
+
 article.card ul {
   margin: 0;
 }
