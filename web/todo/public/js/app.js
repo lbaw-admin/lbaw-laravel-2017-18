@@ -53,6 +53,8 @@ function updateItem() {
 }
 
 function addItem() {
+  if (this.status != 200) window.location = '/';
+  console.log(this.status);
   let item = JSON.parse(this.responseText);
   let input = document.querySelector('article.card input[type=hidden][value="' + item.card_id + '"]');
   let form = input.parentNode;
@@ -71,6 +73,7 @@ function addItem() {
 }
 
 function addCard() {
+  if (this.status != 200) window.location = '/';
   let card = JSON.parse(this.responseText);
   let form = document.querySelector('article.card form.new_card');
   let article = form.parentElement;
