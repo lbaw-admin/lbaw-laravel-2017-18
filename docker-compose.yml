@@ -13,9 +13,9 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     environment: 
-      PGADMIN_DEFAULT_EMAIL: postgres
-      PGADMIN_DEFAULT_PASSWORD: pg!fcp
+      DEFAULT_USER: postgres
+      DEFAULT_PASSWORD: pg!fcp
     ports:
-      - "8001:80"
+      - "8001:5050"
     depends_on: 
       - postgres

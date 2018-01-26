@@ -31,7 +31,7 @@ main > header span {
 article.card {
   display: flex;
   flex-direction: column;
-  
+
   background-color: #FFFEAB;
 
   padding: 1em;
