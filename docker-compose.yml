@@ -2,30 +2,20 @@ version: '3'
 services:
 
   postgres:
-    image: postgres
+    image: postgres:latest
     restart: always
     environment:
-      POSTGRES_USER: todo
-      POSTGRES_PASSWORD: todo!fcp
-    volumes:
-      - ./db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
-
-  php:
-    build: .
-    image: php:7-fpm
-    restart: always
-    volumes:
-      - "./web:/var/www/html"
-      - "./etc/php/php.ini:/usr/local/etc/php/conf.d/php.ini"
-    depends_on:
-      - postgres
-
-  nginx:
-    image: nginx
-    volumes:
-      - "./etc/nginx/default.conf:/etc/nginx/conf.d/default.conf"
-      - "./web:/var/www/html"
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pg!fcp
     ports:
-      - "8080:80"
-    depends_on:
-      - php
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: postgres
+      PGADMIN_DEFAULT_PASSWORD: pg!fcp
+    ports:
+      - "8001:80"
+    depends_on: 
+      - postgres
