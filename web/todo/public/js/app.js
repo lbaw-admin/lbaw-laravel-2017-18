@@ -63,7 +63,7 @@ function addItem() {
   let new_item = document.createElement('li');
   new_item.innerHTML = `
     <label>
-      <input value="${item.id}" type="checkbox"> ${item.description}
+      <input value="${item.id}" type="checkbox"> <span>${item.description}</span>
     </label>
   `;
   new_item.querySelector('input').addEventListener('change', itemChanged);

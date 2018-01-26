@@ -42,7 +42,7 @@ article.card li {
   list-style-type: none;
 }
 
-article.card input[checked] + span {
+article.card input:checked + span {
   text-decoration: line-through;
 }
 
