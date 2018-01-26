@@ -1,14 +1,16 @@
 ## Install
 
     git clone git@github.com:arestivo/lbaw-laravel.git
-    cd lbaw-laravel/web/todo
+    cd lbaw-laravel/project
     composer install
 
 ## Start
 
 From project root:
 
-    docker-compose up
+    docker-compose up # Start postgresql
+    cd project
+    php artisan serve # Start development server
 
 ## Usage
 
