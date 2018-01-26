@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
      {
          Eloquent::unguard();
 
-         $path = 'seed.sql';
+         $path = 'resources/sql/seed.sql';
          DB::unprepared(file_get_contents($path));
          $this->command->info('Tables seeded!');
      }
