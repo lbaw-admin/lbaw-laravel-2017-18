@@ -23,6 +23,7 @@ Route::get('cards/{id}', 'CardController@show');
 Route::put('api/cards', 'CardController@create');
 Route::put('api/cards/{card_id}/', 'ItemController@create');
 Route::post('api/item/{id}', 'ItemController@update');
+Route::delete('api/item/{id}', 'ItemController@delete');
 
 // Authentication
 

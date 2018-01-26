@@ -8,6 +8,11 @@ let itemCreators = document.querySelectorAll('article.card form.new_item');
   creator.addEventListener('submit', itemCreated);
 });
 
+let itemDeleters = document.querySelectorAll('article.card a.delete');
+[].forEach.call(itemDeleters, function(deleter) {
+  deleter.addEventListener('click', itemDeleted);
+});
+
 let cardCreator = document.querySelector('article.card form.new_card');
 cardCreator.addEventListener('submit', cardCreated);
 
@@ -24,6 +29,15 @@ function itemChanged() {
   request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(encodeForAjax({done: this.checked}));
+}
+
+function itemDeleted() {
+  let request = new XMLHttpRequest();
+  request.addEventListener('load', deleteItem);
+  request.open("delete", "/api/item/" + this.parentElement.querySelector('input').value, true);
+  request.setRequestHeader('X-CSRF-TOKEN', document.querySelector('meta[name="csrf-token"]').content);
+  request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  request.send();
 }
 
 function itemCreated(event) {
@@ -54,7 +68,6 @@ function updateItem() {
 
 function addItem() {
   if (this.status != 200) window.location = '/';
-  console.log(this.status);
   let item = JSON.parse(this.responseText);
   let input = document.querySelector('article.card input[type=hidden][value="' + item.card_id + '"]');
   let form = input.parentNode;
@@ -63,13 +76,23 @@ function addItem() {
   let new_item = document.createElement('li');
   new_item.innerHTML = `
     <label>
-      <input value="${item.id}" type="checkbox"> <span>${item.description}</span>
+      <input value="${item.id}" type="checkbox"> <span>${item.description}</span><a href="#" class="delete">&#10761;</a>
     </label>
   `;
+
   new_item.querySelector('input').addEventListener('change', itemChanged);
+  new_item.querySelector('a.delete').addEventListener('click', itemDeleted);
 
   form.querySelector('[type=text]').value="";
   ul.append(new_item);
+}
+
+function deleteItem() {
+  if (this.status != 200) window.location = '/';
+  let item = JSON.parse(this.responseText);
+  let element = document.querySelector('article.card input[type=checkbox][value="' + item.id + '"]');
+  let li = element.parentElement.parentElement;
+  li.remove();
 }
 
 function addCard() {

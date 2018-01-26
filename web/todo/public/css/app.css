@@ -42,6 +42,24 @@ article.card li {
   list-style-type: none;
 }
 
+article.card li label{
+  display: flex;
+  align-items: baseline;
+}
+
+article.card li label span{
+  margin-left: .5em;
+  flex-grow: 1;
+}
+
+article.card li label a{
+  display: none;
+}
+
+article.card li label:hover a{
+  display: inline;
+}
+
 article.card input:checked + span {
   text-decoration: line-through;
 }

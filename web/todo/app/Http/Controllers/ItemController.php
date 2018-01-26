@@ -47,4 +47,21 @@ class ItemController extends Controller
 
       return $item;
     }
+
+    /**
+     * Deletes an individual item.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+    public function delete(Request $request, $id)
+    {
+      $item = Item::find($id);
+
+      $this->authorize('delete', $item);
+      $item->delete();
+
+      return $item;
+    }
+
 }

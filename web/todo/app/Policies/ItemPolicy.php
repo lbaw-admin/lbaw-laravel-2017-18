@@ -21,4 +21,9 @@ class ItemPolicy
     {
       return $user->id == $item->card->user_id;
     }
+
+    public function delete(User $user, Item $item)
+    {
+      return $user->id == $item->card->user_id;
+    }
 }
