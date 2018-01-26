@@ -10,16 +10,19 @@ From project root:
 
     docker-compose up # Starts postgresql and pgadmin 4
     cd project
+    php artisan db:seed # Seed database. Needed on first run
+                        # and everytime the database script changes.
     php artisan serve # Start development server
 
 ## Usage
 
 To access the application navigate to:
 
-    http://localhost:8080/list
+    http://localhost:8000
 
 To manage the database using PgAdmin 4 navigate to:
-    # username: postgres@lbaw.com
+
+    # username: postgres
     # password: pg!fcp
     http://localhost:8001
 
