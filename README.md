@@ -25,7 +25,16 @@ sets up PostgreSQL and pgadmin 4 locally. From project root issue the following 
 
     docker-compose up # Starts postgresql and pgadmin 4
 
-This will start the database and pgadmin. The database's username is `postgres` and the password `pg!fcp`. You can access http://localhost:5050 to access pgadmin 4 and manage your database.
+This will start the database and pgadmin. The database's username is `postgres` and the password
+`pg!fcp`. You can access http://localhost:5050 to access pgadmin 4 and manage your database. On the
+first usage you will need to add the connection to the database using the following attributes:
+
+    username: postgres
+    password: pg!fcp
+    hostname: postgres
+
+Hostname is postgres instead of localhost since docker composes creates an internal DNS entry to
+facilitate connection between linked containers.
 
 ## Developing the project
 
