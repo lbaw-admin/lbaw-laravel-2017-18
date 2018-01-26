@@ -11,11 +11,12 @@ services:
       - "5432:5432"
 
   pgadmin:
-    image: dpage/pgadmin4
+    image: thajeztah/pgadmin4
     environment: 
-      DEFAULT_USER: postgres
-      DEFAULT_PASSWORD: pg!fcp
+      PGADMIN_DEFAULT_EMAIL: postgres
+      PGADMIN_DEFAULT_PASSWORD: pg!fcp
+      PGADMIN_ENABLE_TLS: "False" 
     ports:
-      - "8001:5050"
+      - "5050:5050"
     depends_on: 
       - postgres

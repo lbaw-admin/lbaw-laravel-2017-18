@@ -6,7 +6,7 @@
 
 ## Start
 
-From project root:
+From project root (lbaw-laravel):
 
     docker-compose up # Starts postgresql and pgadmin 4
     cd project
@@ -24,7 +24,7 @@ To manage the database using PgAdmin 4 navigate to:
 
     # username: postgres
     # password: pg!fcp
-    http://localhost:8001
+    http://localhost:5050
 
 ## Publishing your image
 
