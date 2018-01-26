@@ -12,7 +12,7 @@ this repository and shared it with your friends and teacher. When you're ready t
 following:
 
     git clone git@github.com:<YOUR GITHUB>>/lbaw-laravel.git
-    cd lbaw-laravel/project
+    cd lbaw-laravel
     composer install
 
 Notice that you need to substitute <YOUR GITHUB> by the username of the team member that forked the
@@ -32,9 +32,8 @@ This will start the database and pgadmin. The database's username is `postgres` 
 You're all set up to start developing the project. In the provided skeleton you will already find
 a basic todo list app, which you will modify to start implementing your own.
 
-To start the serve run:
+To start the development server, from the project's root run:
 
-    cd project
     # Seed database from the seed.sql file. Needed on first run and everytime the database script changes.
     php artisan db:seed
     php artisan serve # Start the development server
