@@ -9,9 +9,14 @@ function addEventListeners() {
     creator.addEventListener('submit', sendCreateItemRequest);
   });
 
-  let itemDeleters = document.querySelectorAll('article.card a.delete');
+  let itemDeleters = document.querySelectorAll('article.card li a.delete');
   [].forEach.call(itemDeleters, function(deleter) {
     deleter.addEventListener('click', sendDeleteItemRequest);
+  });
+
+  let cardDeleters = document.querySelectorAll('article.card header a.delete');
+  [].forEach.call(cardDeleters, function(deleter) {
+    deleter.addEventListener('click', sendDeleteCardRequest);
   });
 
   let cardCreator = document.querySelector('article.card form.new_card');
@@ -48,6 +53,11 @@ function sendCreateItemRequest(event) {
   event.preventDefault();
   let id = this.querySelector('input[name=card_id]').value;
   sendAjaxRequest('put', '/api/cards/' + id, {description: this.querySelector('input[name=description]').value}, itemAddedHandler);
+}
+
+function sendDeleteCardRequest(event) {
+  let id = this.closest('article').querySelector('input[type=hidden]').value;
+  sendAjaxRequest('delete', '/api/cards/' + id, null, cardDeletedHandler);
 }
 
 function sendCreateCardRequest(event) {
@@ -91,6 +101,13 @@ function itemDeletedHandler() {
   li.remove();
 }
 
+function cardDeletedHandler() {
+  //if (this.status != 200) window.location = '/';
+  let card = JSON.parse(this.responseText);
+  let article = document.querySelector('article.card input[type=hidden][value="' + card.id + '"]').closest('article');
+  article.remove();
+}
+
 function cardAddedHandler() {
   if (this.status != 200) window.location = '/';
   let card = JSON.parse(this.responseText);
@@ -103,6 +120,7 @@ function cardAddedHandler() {
   new_card.innerHTML = `
   <header>
     <h2><a href="cards/${card.id}">${card.name}</a></h2>
+    <a href="#" class="delete">&#10761;</a>
   </header>
   <ul></ul>
   <form class="new_item">
@@ -115,6 +133,9 @@ function cardAddedHandler() {
 
   let creator = new_card.querySelector('form.new_item');
   creator.addEventListener('submit', sendCreateItemRequest);
+
+  let deleter = new_card.querySelector('header a.delete');
+  deleter.addEventListener('click', sendDeleteCardRequest);
 
   new_card.querySelector('[type=text]').focus();
 }

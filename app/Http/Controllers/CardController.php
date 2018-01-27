@@ -58,4 +58,14 @@ class CardController extends Controller
 
       return $card;
     }
+
+    public function delete(Request $request, $id)
+    {
+      $card = Card::find($id);
+
+      $this->authorize('delete', $card);
+      $card->delete();
+
+      return $card;
+    }
 }

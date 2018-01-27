@@ -38,6 +38,26 @@ article.card {
   margin: 1em;
 }
 
+article.card header {
+  display: flex;
+  align-items: center;
+}
+
+article.card header h2 {
+  flex-grow: 1;
+}
+
+article.card header a.delete {
+  font-size: 2.6rem;
+  display: none;
+  margin-bottom: 3rem;
+  line-height: 1.25;
+}
+
+article.card header:hover a.delete {
+  display: inline;
+}
+
 article.card li {
   list-style-type: none;
 }
