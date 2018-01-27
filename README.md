@@ -11,7 +11,7 @@ At this time, you are ready to start working on your project. You should have cr
 this repository and shared it with your friends and teacher. When you're ready to start, do the
 following:
 
-    git clone git@github.com:<YOUR GITHUB>>/lbaw-laravel.git
+    git clone git@github.com:<YOUR GITHUB>/lbaw-laravel.git
     cd lbaw-laravel
     composer install
 
