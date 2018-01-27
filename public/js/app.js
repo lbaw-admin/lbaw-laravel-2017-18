@@ -57,8 +57,10 @@ function sendDeleteItemRequest() {
 
 function sendCreateItemRequest(event) {
   let id = this.closest('article').getAttribute('data-id');
+  let description = this.querySelector('input[name=description]').value;
 
-  sendAjaxRequest('put', '/api/cards/' + id, {description: this.querySelector('input[name=description]').value}, itemAddedHandler);
+  if (description != '')
+    sendAjaxRequest('put', '/api/cards/' + id, {description: description}, itemAddedHandler);
 
   event.preventDefault();
 }
@@ -72,7 +74,8 @@ function sendDeleteCardRequest(event) {
 function sendCreateCardRequest(event) {
   let name = this.querySelector('input[name=name]').value;
 
-  sendAjaxRequest('put', '/api/cards/', {name: name}, cardAddedHandler);
+  if (name != '')
+    sendAjaxRequest('put', '/api/cards/', {name: name}, cardAddedHandler);
 
   event.preventDefault();
 }
