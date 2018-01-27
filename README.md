@@ -15,7 +15,7 @@ following:
     cd lbaw-laravel
     composer install
 
-Notice that you need to substitute <YOUR GITHUB> by the username of the team member that forked the
+Notice that you need to substitute \<YOUR GITHUB\> by the username of the team member that forked the
 repository. At this point you have project skeleton in your local machine and are ready to start.
 
 ## Working with PostgreSQL
