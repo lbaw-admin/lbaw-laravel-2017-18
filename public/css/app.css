@@ -48,9 +48,13 @@ article.card header h2 {
 }
 
 article.card header a.delete {
-  font-size: 2.6rem;
   display: none;
-  margin-bottom: 3rem;
+
+  font-size: 2.6rem;
+
+  margin-top: .5rem;
+  margin-bottom: 2.5rem;
+
   line-height: 1.25;
 }
 
