@@ -1,4 +1,4 @@
-<article class="card">
+<article class="card" data-id="{{ $card->id }}">
 <header>
   <h2><a href="/cards/{{ $card->id }}">{{ $card->name }}</a></h2>
   <a href="#" class="delete">&#10761;</a>
@@ -7,7 +7,6 @@
   @each('partials.item', $card->items()->orderBy('id')->get(), 'item')
 </ul>
 <form class="new_item">
-  <input type="hidden" name="card_id" value="{{ $card->id }}">
   <input type="text" name="description" placeholder="new item">
 </form>
 </article>

@@ -1,6 +1,6 @@
-<li>
+<li class="item" data-id="{{$item->id}}">
   <label>
-    <input type="checkbox" value="{{$item->id}}"{{ $item->done?'checked':''}}>
+    <input type="checkbox" {{ $item->done?'checked':''}}>
     <span>{{ $item->description }}</span>
     <a href="#" class="delete">&#10761;</a>
   </label>
