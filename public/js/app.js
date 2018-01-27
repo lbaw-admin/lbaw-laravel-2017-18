@@ -77,7 +77,6 @@ function itemAddedHandler() {
   let item = JSON.parse(this.responseText);
   let input = document.querySelector('article.card input[type=hidden][value="' + item.card_id + '"]');
   let form = input.parentNode;
-  let ul = form.previousElementSibling;
 
   let new_item = document.createElement('li');
   new_item.innerHTML = `
@@ -90,15 +89,14 @@ function itemAddedHandler() {
   new_item.querySelector('a.delete').addEventListener('click', sendDeleteItemRequest);
 
   form.querySelector('[type=text]').value="";
-  ul.append(new_item);
+  form.previousElementSibling.append(new_item);
 }
 
 function itemDeletedHandler() {
   if (this.status != 200) window.location = '/';
   let item = JSON.parse(this.responseText);
   let element = document.querySelector('article.card input[type=checkbox][value="' + item.id + '"]');
-  let li = element.parentElement.parentElement;
-  li.remove();
+  element.closest('li').remove();
 }
 
 function cardDeletedHandler() {
