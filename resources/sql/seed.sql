@@ -7,9 +7,7 @@ CREATE TABLE users (
   name VARCHAR NOT NULL,
   email VARCHAR UNIQUE NOT NULL,
   password VARCHAR NOT NULL,
-  remember_token VARCHAR,
-  created_at DATE,
-  updated_at DATE
+  remember_token VARCHAR
 );
 
 CREATE TABLE cards (
