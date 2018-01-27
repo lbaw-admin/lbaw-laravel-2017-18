@@ -11,7 +11,7 @@ use App\Card;
 class CardController extends Controller
 {
     /**
-     * Shows the list for the given ID.
+     * Shows the card for a given id.
      *
      * @param  int  $id
      * @return Response
@@ -44,7 +44,7 @@ class CardController extends Controller
     /**
      * Creates a new card.
      *
-     * @return Response
+     * @return Card The card created.
      */
     public function create(Request $request)
     {

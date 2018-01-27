@@ -15,6 +15,7 @@ class ItemController extends Controller
    * Creates a new item.
    *
    * @param  int  $card_id
+   * @param  Request request containing the description
    * @return Response
    */
   public function create(Request $request, $card_id)
@@ -23,7 +24,7 @@ class ItemController extends Controller
     $item->card_id = $card_id;
 
     $this->authorize('create', $item);
-    
+
     $item->done = false;
     $item->description = $request->input('description');
     $item->save();
@@ -35,6 +36,7 @@ class ItemController extends Controller
      * Updates the state of an individual item.
      *
      * @param  int  $id
+     * @param  Request request containing the new state
      * @return Response
      */
     public function update(Request $request, $id)

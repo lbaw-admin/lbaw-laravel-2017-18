@@ -9,6 +9,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // Don't add create and update timestamps in database.
     public $timestamps  = false;
 
     /**
@@ -29,7 +30,10 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function cards() {
+    /**
+     * The cards this user owns.
+     */
+     public function cards() {
       return $this->hasMany('App\Card');
     }
 }
