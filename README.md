@@ -1,9 +1,9 @@
 ## Prepare your development environment
 
-To prepare you computer for development you need to install some software, namely docker, php and
-the php package manager composer.
+To prepare you computer for development you need to install some software, namely _docker_, _php_ and
+the php package manager _composer_.
 
-We recommend using an ubuntu distribution that ships php7.1. You can install the required software with:
+We recommend using an _ubuntu_ distribution that ships _php 7.1_. You can install the required software with:
 
     sudo apt-get install git php composer docker-compose
 
@@ -15,25 +15,25 @@ following:
     cd lbaw-laravel
     composer install
 
-Notice that you need to substitute \<YOUR GITHUB\> by the username of the team member that forked the
-repository. At this point you have project skeleton in your local machine and are ready to start.
+Notice that you need to substitute \<YOUR GITHUB\> with the username of the team member that forked the
+repository. At this point you should have the project skeleton in your local machine and be ready to start.
 
 ## Working with PostgreSQL
 
-You will be using PostgreSQL to implement this project. We've created a docker-compose file that
-sets up PostgreSQL and pgadmin 4 locally. From project root issue the following command:
+You will be using _PostgreSQL_ to implement this project. We've created a _docker-compose_ file that
+sets up _PostgreSQL_ and _pgadmin 4_ locally. From the project root issue the following command:
 
-    docker-compose up # Starts postgresql and pgadmin 4
+    docker-compose up
 
-This will start the database and pgadmin. The database's username is `postgres` and the password
-`pg!fcp`. You can access http://localhost:5050 to access pgadmin 4 and manage your database. On the
+This will start the database and _pgadmin_. The database's username is `postgres` and the password
+`pg!fcp`. You can access http://localhost:5050 to access _pgadmin 4_ and manage your database. On the
 first usage you will need to add the connection to the database using the following attributes:
 
+    hostname: postgres
     username: postgres
     password: pg!fcp
-    hostname: postgres
 
-Hostname is postgres instead of localhost since docker composes creates an internal DNS entry to
+Hostname is _postgres_ instead of _localhost_ since _docker composer_ creates an internal _DNS_ entry to
 facilitate connection between linked containers.
 
 ## Developing the project
@@ -45,19 +45,21 @@ To start the development server, from the project's root run:
 
     # Seed database from the seed.sql file. Needed on first run and everytime the database script changes.
     php artisan db:seed
-    php artisan serve # Start the development server
-
+    # Start the development server
+    php artisan serve 
+    
 Access http://localhost:8000 to see the app running. If you made changes to the credentials be sure
 to update the `.env` file accordingly.
 
 ## Publishing your image
 
 You should keep your git's master branch always functional and frequently build and deploy your
-code. To do so, you will create a docker image for your project and publish it at docker hub. LBAW's
-teachers will frequently pull all these images and make them available at TODO..
+code. To do so, you will create a _docker_ image for your project and publish it at 
+[docker hub](https://hub.docker.com/). LBAW's teachers will frequently pull all these images and 
+make them available at **TODO**.
 
-First thing you need to do is create a docker hub account and get your username from it. Once you
-have a username, let your docker know who you are by executing:
+First thing you need to do is create a [docker hub](https://hub.docker.com/) account and get your 
+username from it. Once you have a username, let your docker know who you are by executing:
 
     docker login
 
@@ -75,5 +77,5 @@ Note that during the build process we adopt the production configurations from t
 file. You should configure it with your production database credentials, since your local database
 will not be available in the production environment.
 
-Note that there should be only one image per group. One team member should create the image
-initially and add his team to the repository at docker hub.
+Note that there should be only one image per group. One team member should create the image initially 
+and add his team to the repository at docker hub.
