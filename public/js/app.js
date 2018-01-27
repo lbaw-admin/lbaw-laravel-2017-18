@@ -1,22 +1,22 @@
 function addEventListeners() {
   let items = document.querySelectorAll('article.card input[type=checkbox]');
   [].forEach.call(items, function(item) {
-    item.addEventListener('change', itemChanged);
+    item.addEventListener('change', sendItemChangeRequest);
   });
 
   let itemCreators = document.querySelectorAll('article.card form.new_item');
   [].forEach.call(itemCreators, function(creator) {
-    creator.addEventListener('submit', itemCreated);
+    creator.addEventListener('submit', sendCreateItemRequest);
   });
 
   let itemDeleters = document.querySelectorAll('article.card a.delete');
   [].forEach.call(itemDeleters, function(deleter) {
-    deleter.addEventListener('click', itemDeleted);
+    deleter.addEventListener('click', sendDeleteItemRequest);
   });
 
   let cardCreator = document.querySelector('article.card form.new_card');
   if (cardCreator != null)
-    cardCreator.addEventListener('submit', cardCreated);
+    cardCreator.addEventListener('submit', sendCreateCardRequest);
 }
 
 function encodeForAjax(data) {
@@ -35,34 +35,34 @@ function sendAjaxRequest(method, url, data, handler) {
   request.send(encodeForAjax(data));
 }
 
-function itemChanged() {
-  sendAjaxRequest('post', '/api/item/' + this.value, {done: this.checked}, updateItemHandler);
+function sendItemChangeRequest() {
+  sendAjaxRequest('post', '/api/item/' + this.value, {done: this.checked}, itemUpdatedHandler);
 }
 
-function itemDeleted() {
+function sendDeleteItemRequest() {
   let id = this.parentElement.querySelector('input').value;
-  sendAjaxRequest('delete', '/api/item/' + id, null, deleteItemHandler);
+  sendAjaxRequest('delete', '/api/item/' + id, null, itemDeletedHandler);
 }
 
-function itemCreated(event) {
+function sendCreateItemRequest(event) {
   event.preventDefault();
   let id = this.querySelector('input[name=card_id]').value;
-  sendAjaxRequest('put', '/api/cards/' + id, {description: this.querySelector('input[name=description]').value}, addItemHandler);
+  sendAjaxRequest('put', '/api/cards/' + id, {description: this.querySelector('input[name=description]').value}, itemAddedHandler);
 }
 
-function cardCreated(event) {
+function sendCreateCardRequest(event) {
   event.preventDefault();
   let name = this.querySelector('input[name=name]').value;
-  sendAjaxRequest('put', '/api/cards/', {name: name}, addCardHandler);
+  sendAjaxRequest('put', '/api/cards/', {name: name}, cardAddedHandler);
 }
 
-function updateItemHandler() {
+function itemUpdatedHandler() {
   let item = JSON.parse(this.responseText);
   let element = document.querySelector('article.card input[type=checkbox][value="' + item.id + '"]');
   element.checked = item.done == "true";
 }
 
-function addItemHandler() {
+function itemAddedHandler() {
   if (this.status != 200) window.location = '/';
   let item = JSON.parse(this.responseText);
   let input = document.querySelector('article.card input[type=hidden][value="' + item.card_id + '"]');
@@ -76,14 +76,14 @@ function addItemHandler() {
     </label>
   `;
 
-  new_item.querySelector('input').addEventListener('change', itemChanged);
-  new_item.querySelector('a.delete').addEventListener('click', itemDeleted);
+  new_item.querySelector('input').addEventListener('change', sendItemChangeRequest);
+  new_item.querySelector('a.delete').addEventListener('click', sendDeleteItemRequest);
 
   form.querySelector('[type=text]').value="";
   ul.append(new_item);
 }
 
-function deleteItemHandler() {
+function itemDeletedHandler() {
   if (this.status != 200) window.location = '/';
   let item = JSON.parse(this.responseText);
   let element = document.querySelector('article.card input[type=checkbox][value="' + item.id + '"]');
@@ -91,7 +91,7 @@ function deleteItemHandler() {
   li.remove();
 }
 
-function addCardHandler() {
+function cardAddedHandler() {
   if (this.status != 200) window.location = '/';
   let card = JSON.parse(this.responseText);
   let form = document.querySelector('article.card form.new_card');
@@ -114,7 +114,7 @@ function addCardHandler() {
   section.insertBefore(new_card, article);
 
   let creator = new_card.querySelector('form.new_item');
-  creator.addEventListener('submit', itemCreated);
+  creator.addEventListener('submit', sendCreateItemRequest);
 
   new_card.querySelector('[type=text]').focus();
 }

@@ -23,7 +23,8 @@ class ItemController extends Controller
     $item->card_id = $card_id;
 
     $this->authorize('create', $item);
-
+    
+    $item->done = false;
     $item->description = $request->input('description');
     $item->save();
 
