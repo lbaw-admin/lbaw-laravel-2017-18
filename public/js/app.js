@@ -47,8 +47,6 @@ function sendItemUpdateRequest() {
   let checked = item.querySelector('input[type=checkbox]').checked;
 
   sendAjaxRequest('post', '/api/item/' + id, {done: checked}, itemUpdatedHandler);
-
-  event.preventDefault();
 }
 
 function sendDeleteItemRequest() {

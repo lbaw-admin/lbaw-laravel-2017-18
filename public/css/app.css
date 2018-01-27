@@ -1,8 +1,21 @@
+:root {
+  --page-bg-color: #FFFFFF;
+  --primary-bg-color: #FFFEAB;
+  --secondary-bg-color: #D2A4EE;
+  --primary-color: #9B4DCA;
+  --error-color: #FF0000;
+}
+
+body {
+  background-color: var(--page-bg-color);
+  color: var(--primary-color);
+}
+
 main > header {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  background-color: #D2A4EE;
+  background-color: var(--secondary-bg-color);
   padding: 1em;
   margin: 1em;
 }
@@ -20,7 +33,6 @@ main > header a.button {
 main > header span {
   margin: 1em;
   justify-self: center;
-  color: white;
 }
 
 #cards {
@@ -32,7 +44,7 @@ article.card {
   display: flex;
   flex-direction: column;
 
-  background-color: #FFFEAB;
+  background-color: var(--primary-bg-color);
 
   padding: 1em;
   margin: 1em;
@@ -85,7 +97,7 @@ article.card li label:hover a{
 }
 
 article.card input:checked + span {
-  text-decoration: red solid line-through;
+  text-decoration: var(--primary-color) solid line-through;
 }
 
 article.card ul {
@@ -105,12 +117,12 @@ article.card input[type=text] {
   margin: 0 auto;
   padding: 1em;
   max-width: 20em;
-  border: 1px solid #D2A4EE;
+  border: 1px solid var(--primary-color);
 }
 
 #content > form .error{
   font-weight: bold;
-  color: red;
+  color: var(--error-color);
 }
 
 #content > form input{
@@ -130,4 +142,31 @@ article.card input[type=text] {
 
 @media (max-width: 40em) {
   #cards { grid-template-columns: 1fr;  }
+}
+
+/**
+ * Overide milligram colors
+ * Some styles might be missing
+ **/
+
+button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+a.button {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+a.button.button-outline {
+  color: var(--primary-color);
+}
+
+a {
+  color: var(--primary-color);
+}
+
+input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+  border-color: var(--primary-color);
 }
