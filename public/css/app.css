@@ -85,7 +85,7 @@ article.card li label:hover a{
 }
 
 article.card input:checked + span {
-  text-decoration: line-through;
+  text-decoration: red solid line-through;
 }
 
 article.card ul {

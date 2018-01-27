@@ -1,7 +1,7 @@
 function addEventListeners() {
-  let items = document.querySelectorAll('article.card input[type=checkbox]');
-  [].forEach.call(items, function(item) {
-    item.addEventListener('change', sendItemUpdateRequest);
+  let itemCheckers = document.querySelectorAll('article.card li.item input[type=checkbox]');
+  [].forEach.call(itemCheckers, function(checker) {
+    checker.addEventListener('change', sendItemUpdateRequest);
   });
 
   let itemCreators = document.querySelectorAll('article.card form.new_item');
@@ -47,6 +47,8 @@ function sendItemUpdateRequest() {
   let checked = item.querySelector('input[type=checkbox]').checked;
 
   sendAjaxRequest('post', '/api/item/' + id, {done: checked}, itemUpdatedHandler);
+
+  event.preventDefault();
 }
 
 function sendDeleteItemRequest() {
