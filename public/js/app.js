@@ -142,6 +142,7 @@ function createCard(card) {
   new_card.classList.add('card');
   new_card.setAttribute('data-id', card.id);
   new_card.innerHTML = `
+
   <header>
     <h2><a href="cards/${card.id}">${card.name}</a></h2>
     <a href="#" class="delete">&#10761;</a>
@@ -165,9 +166,9 @@ function createItem(item) {
   new_item.classList.add('item');
   new_item.setAttribute('data-id', item.id);
   new_item.innerHTML = `
-    <label>
-      <input type="checkbox"> <span>${item.description}</span><a href="#" class="delete">&#10761;</a>
-    </label>
+  <label>
+    <input type="checkbox"> <span>${item.description}</span><a href="#" class="delete">&#10761;</a>
+  </label>
   `;
 
   new_item.querySelector('input').addEventListener('change', sendItemUpdateRequest);
