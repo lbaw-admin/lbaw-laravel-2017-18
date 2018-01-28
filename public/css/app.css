@@ -20,6 +20,10 @@ body {
   color: var(--primary-color);
 }
 
+label {
+  font-weight: normal;
+}
+
 main > header {
   display: grid;
   grid-template-columns: 1fr auto auto;
