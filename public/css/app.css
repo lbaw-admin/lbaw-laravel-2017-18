@@ -35,7 +35,6 @@ main > header {
 
 main > header h1 {
   margin: 0;
-  flex-grow: 1;
 }
 
 main > header a.button {
@@ -157,6 +156,14 @@ article.card input[type=text] {
   #cards { grid-template-columns: 1fr;  }
 }
 
+@media (max-width: 25em) {
+  body { margin: 0;}
+  main > header { margin: 0; padding: 0.5em; }
+  main > header span { margin: 0; }
+  #content form { margin: 0; max-width: 25em; }
+  article.card { margin: 0; border-bottom: 1px solid rgba(96, 108, 118, 0.4); }
+}
+
 /**
  * Overide milligram colors
  * Some styles might be missing
@@ -179,7 +186,7 @@ a.button.button-outline {
 a {
   color: var(--primary-color);
 }
-
+display: block;
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
   border-color: var(--primary-color);
 }
