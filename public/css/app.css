@@ -6,6 +6,15 @@
   --error-color: #FF0000;
 }
 
+/* Alternative theme example
+:root {
+  --page-bg-color: #faf7d2;
+  --primary-bg-color: #f5ee9e;
+  --secondary-bg-color: #43aa8b;
+  --primary-color: #1f4e40;
+  --error-color: #FF0000;
+} */
+
 body {
   background-color: var(--page-bg-color);
   color: var(--primary-color);
@@ -117,7 +126,7 @@ article.card input[type=text] {
   margin: 0 auto;
   padding: 1em;
   max-width: 20em;
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--secondary-bg-color);
 }
 
 #content > form .error{
