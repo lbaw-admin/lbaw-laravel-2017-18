@@ -147,13 +147,13 @@ be using [Blade](https://laravel.com/docs/5.5/blade) templates to make this task
 
     return view('pages.card', ['card' => $card]);
 
-In this example, *pages.card* references a blade template that can be found in *resources/views/pages/card.blade.php*. The second parameter is the data we are sending to the template.
+In this example, *pages.card* references a blade template that can be found at *resources/views/pages/card.blade.php*. The second parameter is the data we are sending to the template.
 
 The first line of the template states it extends another template:
 
     @extends('layouts.app')
 
-This second template can be found in *resources/views/layouts/app.blade.php* and is the basis
+This second template can be found at *resources/views/layouts/app.blade.php* and is the basis
 of all pages in our application. Inside this template, the place where the page template is
 introduced is identified by the following command:
 
@@ -164,11 +164,18 @@ snippets of HTML code can be saved to be reused in other pages.
 
 ### 6) CSS
 
-**TODO** Say something about using Less
+The easiest way to use CSS is just to edit the CSS file found at *public/css/app.css*.
+
+If you prefer to use [less](http://lesscss.org/), a PHP version of the less command-line tool as
+been added to the project. In this case, edit the file at *resources/less/app.less* instead and
+keep the following command running in a shell window so that any changes to this file can be
+compiled into the public CSS file:
+
+    compile-assets.sh
 
 ### 7) Javascript
 
-**TODO** Say something about using Javascript
+To add Javascript into your project, just edit the file found at *public/js/app.js*.
 
 ## Publishing your image
 
