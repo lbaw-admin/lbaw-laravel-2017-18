@@ -9,12 +9,13 @@ We recommend using an _ubuntu_ distribution that ships _php 7.1_ (e.g Ubuntu 17.
 
 At this time, you are ready to start working on your project. You should have created a fork from
 this repository and shared it with your friends and teacher. When you're ready to start, do the
-following (check [this](https://help.github.com/articles/connecting-to-github-with-ssh/) if you're
-having problems connecting to GitHub using ssh):
+following:
 
     git clone git@github.com:<YOUR GITHUB>/lbaw-laravel.git
     cd lbaw-laravel
     composer install
+
+**Tip**: If you're having trouble cloning from GitHub using ssh, check [this](https://help.github.com/articles/connecting-to-github-with-ssh/).
 
 Notice that you need to substitute \<YOUR GITHUB\> with the username of the team member that forked the
 repository. At this point you should have the project skeleton in your local machine and be ready to start.
