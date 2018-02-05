@@ -1,10 +1,3 @@
-/* Alternative theme example
-@page-bg-color: #faf7d2;
-@primary-bg-color: #f5ee9e;
-@secondary-bg-color: #43aa8b;
-@primary-color: #1f4e40;
-@error-color: #FF0000;
-} */
 body {
   background-color: #ffffff;
   color: #9b4dca;
@@ -13,7 +6,7 @@ main > header {
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
-  background-color: #d2a4ee;
+  background-color: #d2afe7;
   padding: 1em;
   margin: 1em;
 }
@@ -35,7 +28,7 @@ main > header span {
 #cards article.card {
   display: flex;
   flex-direction: column;
-  background-color: #fffeab;
+  background-color: #d3edc3;
   padding: 1em;
   margin: 1em;
 }
@@ -86,15 +79,18 @@ main > header span {
   background-color: white;
   margin: 0;
 }
+#content label {
+  font-weight: normal;
+}
 #content > form {
   margin: 0 auto;
   padding: 1em;
   max-width: 20em;
-  border: 1px solid #d2a4ee;
+  border: 1px solid #d2afe7;
 }
 #content > form .error {
   font-weight: bold;
-  color: #ff0000;
+  color: #ff3333;
 }
 #content > form input {
   background-color: white;
@@ -153,9 +149,6 @@ a.button.button-outline {
 }
 a {
   color: #9b4dca;
-}
-label {
-  font-weight: normal;
 }
 input[type=text]:focus,
 input[type=email]:focus,

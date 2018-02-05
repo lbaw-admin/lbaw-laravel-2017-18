@@ -46,19 +46,40 @@ To start the development server, from the project's root run:
     # Seed database from the seed.sql file. Needed on first run and everytime the database script changes.
     php artisan db:seed
     # Start the development server
-    php artisan serve 
-    
+    php artisan serve
+
 Access http://localhost:8000 to see the app running. If you made changes to the credentials be sure
 to update the `.env` file accordingly.
+
+## Code Structure
+
+A typical web request involves the following steps and files:
+
+### Routes
+
+The webpage is processed by *Laravel*'s [routing](https://laravel.com/docs/5.5/routing) mechanism.
+By default, routes are defined inside *routes/web.php*. A typical *route* looks like this:
+
+    Route::get('cards/{id}', 'CardController@show');
+
+This route receives a parameter *id* that is passed on to the *show* method of a controller
+called *CardController*.
+
+### Controllers
+
+### Policies
+
+### Views
+
 
 ## Publishing your image
 
 You should keep your git's master branch always functional and frequently build and deploy your
-code. To do so, you will create a _docker_ image for your project and publish it at 
-[docker hub](https://hub.docker.com/). LBAW's teachers will frequently pull all these images and 
+code. To do so, you will create a _docker_ image for your project and publish it at
+[docker hub](https://hub.docker.com/). LBAW's teachers will frequently pull all these images and
 make them available at **TODO**.
 
-First thing you need to do is create a [docker hub](https://hub.docker.com/) account and get your 
+First thing you need to do is create a [docker hub](https://hub.docker.com/) account and get your
 username from it. Once you have a username, let your docker know who you are by executing:
 
     docker login
@@ -77,5 +98,5 @@ Note that during the build process we adopt the production configurations from t
 file. You should configure it with your production database credentials, since your local database
 will not be available in the production environment.
 
-Note that there should be only one image per group. One team member should create the image initially 
+Note that there should be only one image per group. One team member should create the image initially
 and add his team to the repository at docker hub.

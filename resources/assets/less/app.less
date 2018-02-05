@@ -1,16 +1,10 @@
-@page-bg-color: #FFFFFF;
-@primary-bg-color: #FFFEAB;
-@secondary-bg-color: #D2A4EE;
-@primary-color: #9B4DCA;
-@error-color: #FF0000;
+@primary-color: spin(#9B4DCA, 0);
 
-/* Alternative theme example
-@page-bg-color: #faf7d2;
-@primary-bg-color: #f5ee9e;
-@secondary-bg-color: #43aa8b;
-@primary-color: #1f4e40;
-@error-color: #FF0000;
-} */
+@error-color: #FF3333;
+@page-bg-color: #FFFFFF;
+
+@primary-bg-color: lighten(spin(@primary-color, 180), 30%);
+@secondary-bg-color: lighten(@primary-color, 25%);
 
 body {
   background-color: @page-bg-color;
@@ -121,6 +115,10 @@ main > header {
 
 #content {
 
+  label {
+    font-weight: normal;
+  }
+
   &>form {
     margin: 0 auto;
     padding: 1em;
@@ -183,10 +181,6 @@ a.button.button-outline {
 
 a {
   color: @primary-color;
-}
-
-label {
-  font-weight: normal;
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
