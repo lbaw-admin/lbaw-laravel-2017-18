@@ -65,7 +65,7 @@ to update the `.env` file accordingly.
 
 ## Code Structure
 
-A typical web request involves the following steps and files:
+In Laravel, a typical web request involves the following steps and files:
 
 ### 1) Routes
 
