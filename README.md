@@ -3,9 +3,9 @@
 To prepare you computer for development you need to install some software, namely _docker_, _php_ and
 the php package manager _composer_.
 
-We recommend using an _ubuntu_ distribution that ships _php 7.1_. You can install the required software with:
+We recommend using an _ubuntu_ distribution that ships _php 7.1_ (e.g Ubuntu 17.10). You can install the required software with:
 
-    sudo apt-get install git php composer docker-compose
+    sudo apt-get install git composer docker-compose php7.1 php7.1-mbstring php7.1-xml
 
 At this time, you are ready to start working on your project. You should have created a fork from
 this repository and shared it with your friends and teacher. When you're ready to start, do the
