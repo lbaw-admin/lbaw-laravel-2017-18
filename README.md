@@ -121,9 +121,15 @@ card owner:
 
 ### 5) Views
 
+**TODO** Say something about Blade
+
 ### 6) CSS
 
+**TODO** Say something about using Less
+
 ### 7) Javascript
+
+**TODO** Say something about using Javascript
 
 ## Publishing your image
 
