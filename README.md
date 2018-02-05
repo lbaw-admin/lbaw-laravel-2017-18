@@ -107,9 +107,17 @@ the *Model* class and contains information about the relation between the *card*
       return $this->hasMany('App\Item');
     }
 
-
-
 ### 4) Policies
+
+[Policies](https://laravel.com/docs/5.5/authorization#writing-policies) define which actions a user
+can take. You can find policies inside the *app/Policies* folder. For example, in the *CardPolicy.php*
+file, we defined a *show* method that only allows a certain user to view a card if that user is the
+card owner:
+
+  public function show(User $user, Card $card)
+  {
+    return $user->id == $card->user_id;
+  }
 
 ### 5) Views
 
