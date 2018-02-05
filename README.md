@@ -86,7 +86,26 @@ This particular controller contains a *show* method that receives an *id* from a
 searches for a card in the database, checks if the user as permission to view the card, and then
 returns a view.
 
-### 3) Database
+### 3) Database and Models
+
+To acess the database, we will use the query builder capabilities of [Eloquent](https://laravel.com/docs/5.5/eloquent) but the initial database seeding will still be done
+using raw SQL (code can be found in *resources/sql/seed.sql*).
+
+    $card = Card::find($id);
+
+This line tells *Eloquent* to fetch a card from the database with a certain *id* (the primary key of the
+table). The result will be an object of the class *Card* defined in *app/Card.php*. This class extends
+the *Model* class and contains information about the relation between the *card* tables and other tables:
+
+    /* A card belongs to one user */
+    public function user() {
+      return $this->belongsTo('App\User');
+    }
+
+    /* A card has many items */
+    public function items() {
+      return $this->hasMany('App\Item');
+    }
 
 
 
