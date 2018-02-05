@@ -55,7 +55,7 @@ to update the `.env` file accordingly.
 
 A typical web request involves the following steps and files:
 
-### Routes
+### 1) Routes
 
 The webpage is processed by *Laravel*'s [routing](https://laravel.com/docs/5.5/routing) mechanism.
 By default, routes are defined inside *routes/web.php*. A typical *route* looks like this:
@@ -65,12 +65,38 @@ By default, routes are defined inside *routes/web.php*. A typical *route* looks 
 This route receives a parameter *id* that is passed on to the *show* method of a controller
 called *CardController*.
 
-### Controllers
+### 2) Controllers
 
-### Policies
+[Controllers](https://laravel.com/docs/5.5/controllers) group related request handling logic into
+a single class. Controllers are normally defined in the *app/Http/Controllers* folder.
 
-### Views
+    class CardController extends Controller
+    {
+        public function show($id)
+        {
+          $card = Card::find($id);
 
+          $this->authorize('show', $card);
+
+          return view('pages.card', ['card' => $card]);
+        }
+    }
+
+This particular controller contains a *show* method that receives an *id* from a route. The method
+searches for a card in the database, checks if the user as permission to view the card, and then
+returns a view.
+
+### 3) Database
+
+
+
+### 4) Policies
+
+### 5) Views
+
+### 6) CSS
+
+### 7) Javascript
 
 ## Publishing your image
 
