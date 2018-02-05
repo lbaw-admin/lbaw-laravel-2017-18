@@ -142,7 +142,25 @@ As you can see, there is no need to pass the current *user*.
 
 ### 5) Views
 
-**TODO** Say something about Blade
+A *controller* only needs to return HTML code for it to be sent to the *browser*. However we will
+be using [Blade](https://laravel.com/docs/5.5/blade) templates to make this task easier:
+
+    return view('pages.card', ['card' => $card]);
+
+In this example, *pages.card* references a blade template that can be found in *resources/views/pages/card.blade.php*. The second parameter is the data we are sending to the template.
+
+The first line of the template states it extends another template:
+
+    @extends('layouts.app')
+
+This second template can be found in *resources/views/layouts/app.blade.php* and is the basis
+of all pages in our application. Inside this template, the place where the page template is
+introduced is identified by the following command:
+
+    @yield('content')
+
+Besides the *pages* and *layouts* template folders, we also have a *partials* folder where small
+snippets of HTML code can be saved to be reused in other pages.    
 
 ### 6) CSS
 
