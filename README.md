@@ -114,10 +114,10 @@ can take. You can find policies inside the *app/Policies* folder. For example, i
 file, we defined a *show* method that only allows a certain user to view a card if that user is the
 card owner:
 
-  public function show(User $user, Card $card)
-  {
-    return $user->id == $card->user_id;
-  }
+    public function show(User $user, Card $card)
+    {
+      return $user->id == $card->user_id;
+    }
 
 ### 5) Views
 
