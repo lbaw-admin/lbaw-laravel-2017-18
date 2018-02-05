@@ -101,7 +101,7 @@ returns a view.
 ### 3) Database and Models
 
 To acess the database, we will use the query builder capabilities of [Eloquent](https://laravel.com/docs/5.5/eloquent) but the initial database seeding will still be done
-using raw SQL (code can be found in *resources/sql/seed.sql*).
+using raw SQL (the script that creates the tables can be found in *resources/sql/seed.sql*).
 
     $card = Card::find($id);
 
@@ -130,6 +130,15 @@ card owner:
     {
       return $user->id == $card->user_id;
     }
+
+In this example policy method, *$user* and *$card* are models that represent their respective tables,
+*$id* and *$user_id* are columns from those tables that are automatically mapped into those models.
+
+To use this policy, we just have to use the following code inside the *CardController*:
+
+    $this->authorize('show', $card);
+
+As you can see, there is no need to pass the current *user*.
 
 ### 5) Views
 
