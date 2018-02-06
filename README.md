@@ -8,14 +8,17 @@ We recommend using an _ubuntu_ distribution that ships _php 7.1_ (e.g Ubuntu 17.
     sudo apt-get install git composer php7.1 php7.1-mbstring php7.1-xml php7.1-pgsql
 
 You will also need to install the latest version of docker and docker compose, as described
-[here](https://docs.docker.com/install/linux/docker-ce/ubuntu/):
+[here](https://docs.docker.com/install/linux/docker-ce/ubuntu/) and [here](https://docs.docker.com/compose/install/#install-compose):
 
     sudo apt-get update
     sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update
-    sudo apt-get install docker-ce docker-compose
+    sudo apt-get install docker-ce
+
+    sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
 
 At this time, you are ready to start working on your project. You should have created a fork from
 this repository and shared it with your friends and teacher. When you're ready to start, do the
