@@ -103,7 +103,7 @@ returns a view.
 
 ### 3) Database and Models
 
-To acess the database, we will use the query builder capabilities of [Eloquent](https://laravel.com/docs/5.5/eloquent) but the initial database seeding will still be done
+To access the database, we will use the query builder capabilities of [Eloquent](https://laravel.com/docs/5.5/eloquent) but the initial database seeding will still be done
 using raw SQL (the script that creates the tables can be found in *resources/sql/seed.sql*).
 
     $card = Card::find($id);
