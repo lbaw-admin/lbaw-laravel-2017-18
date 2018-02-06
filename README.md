@@ -174,7 +174,7 @@ been added to the project. In this case, edit the file at *resources/less/app.le
 keep the following command running in a shell window so that any changes to this file can be
 compiled into the public CSS file:
 
-    compile-assets.sh
+    ./compile-assets.sh
 
 ### 7) Javascript
 
