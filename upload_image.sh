@@ -4,7 +4,7 @@
 set -e
 
 DOCKER_USERNAME=tiagoboldt # Replace by your docker hub username
-IMAGE_NAME=lbaw-t1-g01
+IMAGE_NAME=lbaw-demo
 
 # Ensure that dependencies are available
 composer install
