@@ -185,7 +185,10 @@ To add Javascript into your project, just edit the file found at *public/js/app.
 You should keep your git's master branch always functional and frequently build and deploy your
 code. To do so, you will create a _docker_ image for your project and publish it at
 [docker hub](https://hub.docker.com/). LBAW's teachers will frequently pull all these images and
-make them available at **TODO**.
+make them available at http://<YOUR_GROUP>.lbaw-prod.fe.up.pt/. This demo repository is available at
+[http://demo.lbaw-prod.fe.up.pt/](http://demo.lbaw-prod.fe.up.pt/). Make sure you are inside FEUP's 
+network or VPN.
+
 
 First thing you need to do is create a [docker hub](https://hub.docker.com/) account and get your
 username from it. Once you have a username, let your docker know who you are by executing:
