@@ -37,16 +37,18 @@ At this time, you are ready to start working on your project. You should have yo
     cp -r ../lbaw-laravel/ . # You replace lbaw17GG with your group number or appropriare repository folder
     git add .
     git commit -m "base laravel structure"
-    git push origin master
-    
-After the steps above you will have updated your repository with the required laravel structure form this repository. Afterwards, the command bellow will install all local dependencies, required for development. 
-
-    composer install # install locally all dependencies
+    git push origin master 
 
 **Tip**: If you're having trouble cloning from GitHub using *ssh*, check [this](https://help.github.com/articles/connecting-to-github-with-ssh/).
 
-Notice that you need to substitute \<YOUR GITHUB\> with the username of the team member that forked the
+Notice that you need to substitute \<YOUR GITHUB\> with the username of the team member that owns the
 repository. At this point you should have the project skeleton in your local machine and be ready to start.
+
+## Installing local PHP dependencies
+
+After the steps above you will have updated your repository with the required laravel structure form this repository. Afterwards, the command bellow will install all local dependencies, required for development. 
+
+    composer install # install locally all dependencies
 
 ## Working with PostgreSQL
 
