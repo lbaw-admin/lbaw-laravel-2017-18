@@ -213,8 +213,12 @@ username from it. Once you have a username, let your docker know who you are by 
     docker login
 
 Once your docker is able to communicate with the docker hub using your credentials configure the
-`upload_image.sh` script with your username and group's identification as well. Afterwards, you can
-build and upload the docker image by executing that script from the project root:
+`upload_image.sh` script with your username and group's identification as well. Example configuration
+
+    DOCKER_USERNAME=johndoe # Replace by your docker hub username
+    IMAGE_NAME=lbaw17GG # Replace by your lbaw group name
+
+Afterwards, you can build and upload the docker image by executing that script from the project root:
 
     ./upload_image.sh
 
