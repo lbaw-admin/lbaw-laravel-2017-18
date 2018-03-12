@@ -1,3 +1,8 @@
+## Environment
+This README describes how to setup the development environemnt for LBAW using Ubuntu 17.10. Some of the instructions bellow might not work in other operative systems or Ubuntu versions. The recommended way to procceed is to setup a virtual machine using virtualbox and an instance of Ubuntu 17.10. 
+
+You might adapt these instructions to othe operative systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10. 
+
 ## Prepare your development environment
 
 To prepare you computer for development you need to install some software, namely _docker_, _php_ and
