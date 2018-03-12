@@ -3,7 +3,7 @@ This README describes how to setup the development environemnt for LBAW using Ub
 
 You might adapt these instructions to othe operative systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10. 
 
-## Prepare your development environment
+## Installing the Software Dependencies
 
 To prepare you computer for development you need to install some software, namely _docker_, _php_ and
 the php package manager _composer_.
@@ -24,14 +24,24 @@ You will also need to install the latest version of docker and docker compose, a
 
     sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
+    
+# Setting up the Development repository    
 
-At this time, you are ready to start working on your project. You should have created a fork from
-this repository and shared it with your friends and teacher. When you're ready to start, do the
-following:
+At this time, you are ready to start working on your project. You should have your own repository and this repository in the same folder and then copy the contents of this repository to your own:
 
-    git clone git@github.com:<YOUR GITHUB>/lbaw-laravel.git
-    cd lbaw-laravel
-    composer install
+    git clone git@github.com:<YOUR GITHUB>/lbaw17GG # if not yet available locally
+    git clone git@github.com:lbaw-admin/lbaw-laravel.git
+    rm -rf lbaw-laravel/.git  # Remove the git folder
+    cd lbaw17GG
+    git checkout master # make sure you are using the master branch
+    cp -r ../lbaw-laravel/ . # You replace lbaw17GG with your group number or appropriare repository folder
+    git add .
+    git commit -m "base laravel structure"
+    git push origin master
+    
+After the steps above you will have updated your repository with the required laravel structure form this repository. Afterwards, the command bellow will install all local dependencies, required for development. 
+
+    composer install # install locally all dependencies
 
 **Tip**: If you're having trouble cloning from GitHub using *ssh*, check [this](https://help.github.com/articles/connecting-to-github-with-ssh/).
 
