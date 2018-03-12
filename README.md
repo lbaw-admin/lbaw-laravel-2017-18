@@ -33,10 +33,10 @@ At this time, you are ready to start working on your project. You should have yo
     git clone git@github.com:lbaw-admin/lbaw-laravel.git
     rm -rf lbaw-laravel/.git  # Remove the git folder
     cd lbaw17GG
-    git checkout master # make sure you are using the master branch
+    git checkout master # make sure you are using the master branch
     cp -r ../lbaw-laravel/ . # You replace lbaw17GG with your group number or appropriare repository folder
     git add .
-    git commit -m "base laravel structure"
+    git commit -m "base laravel structure"
     git push origin master
     
 After the steps above you will have updated your repository with the required laravel structure form this repository. Afterwards, the command bellow will install all local dependencies, required for development. 
