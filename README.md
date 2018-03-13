@@ -1,7 +1,7 @@
 ## Environment
 This README describes how to setup the development environemnt for LBAW using Ubuntu 17.10. Some of the instructions bellow might not work in other operating systems or Ubuntu versions. The recommended way to procceed is to setup a virtual machine using virtualbox and an instance of Ubuntu 17.10. 
 
-You might adapt these instructions to other operating systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10. 
+**You might adapt these instructions to other operating systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10.**
 
 ## Installing the Software Dependencies
 
