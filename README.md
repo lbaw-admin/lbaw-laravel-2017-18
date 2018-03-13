@@ -228,10 +228,12 @@ Afterwards, you can build and upload the docker image by executing that script f
 
     ./upload_image.sh
 
-After building the image you can also test it locally by running:
+You can test the locally by running:
 
-    docker run -it -p 8000:80 <DOCKER_USERNAME>/<IMAGE NAME>
+    docker run -it -p 8000:80 -e DB_DATABASE=<your db username> -e DB_USERNAME=<your db username> -e DB_PASSWORD=<your db password> <DOCKER_USERNAME>/<IMAGE NAME>
+
+The above command exposes your application on http://localhost:8000. The `-e` argument creates environment variables inside the container, used to provide laravel with the required database configurations. 
 
 Note that during the build process we adopt the production configurations configured in the `.env_production` file. **You should not add your database username and password to this file, your configuration will be provided as an environment variable to your container on execution time**. This prevents anyone else but us from running your container with your database. 
 
-Note that there should be only one image per group. One team member should create the image initially and add his team to the repository at docker hub.
+There should be only one image per group. One team member should create the image initially and add his team to the repository at docker hub. You should provide your teacher the details for accessing your docker image, namely, docker username and repository (DOCKER_USERNAME/IMAGE NAME).
