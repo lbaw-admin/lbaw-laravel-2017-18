@@ -27,15 +27,22 @@ You will also need to install the latest version of docker and docker compose, a
     
 # Setting up the Development repository    
 
-At this time, you are ready to start working on your project. You should have your own repository and a copy of this this repository in the same folder in your machine and then copy the contents of this repository to your own:
+At this time, you are ready to start working on your project. You should have your own repository and a copy of the demo repository in the same folder in your machine and then copy the contents of the demo repository to your own:
 
-    git clone git@github.com:<YOUR GITHUB>/lbaw17GG # if not yet available locally
+    # clone the group repository, if not yet available locally
+    git clone git@github.com:<YOUR GITHUB>/lbaw17GG 
+    # clone the demo repository
     git clone git@github.com:lbaw-admin/lbaw-laravel.git
-    rm -rf lbaw-laravel/.git  # remove the git folder
-    cd lbaw17GG # goto your repository
-    git checkout master # make sure you are using the master branch
-    cp -r ../lbaw-laravel/ . # copy all the demo files
-    git add .  # add the new files to your repository
+    # remove the git folder from the demo
+    rm -rf lbaw-laravel/.git
+    # goto your repository
+    cd lbaw17GG
+    # make sure you are using the master branch
+    git checkout master 
+    # copy all the demo files
+    cp -r ../lbaw-laravel/ .
+    # add the new files to your repository
+    git add .  
     git commit -m "Base laravel structure"
     git push origin master 
 
