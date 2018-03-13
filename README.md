@@ -213,7 +213,6 @@ make them available at http://<YOUR_GROUP>.lbaw-prod.fe.up.pt/. This demo reposi
 [http://demo.lbaw-prod.fe.up.pt/](http://demo.lbaw-prod.fe.up.pt/). Make sure you are inside FEUP's 
 network or VPN.
 
-
 First thing you need to do is create a [docker hub](https://hub.docker.com/) account and get your
 username from it. Once you have a username, let your docker know who you are by executing:
 
@@ -233,9 +232,6 @@ After building the image you can also test it locally by running:
 
     docker run -it -p 8000:80 <DOCKER_USERNAME>/<IMAGE NAME>
 
-Note that during the build process we adopt the production configurations from the `.env_production`
-file. You should configure it with your production database credentials, since your local database
-will not be available in the production environment.
+Note that during the build process we adopt the production configurations configured in the `.env_production` file. **You should not add your database username and password to this file, your configuration will be provided as an environment variable to your container on execution time**. This prevents anyone else but us from running your container with your database. 
 
-Note that there should be only one image per group. One team member should create the image initially
-and add his team to the repository at docker hub.
+Note that there should be only one image per group. One team member should create the image initially and add his team to the repository at docker hub.
