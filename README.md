@@ -1,7 +1,7 @@
 ## Environment
-This README describes how to setup the development environemnt for LBAW using Ubuntu 17.10. Some of the instructions bellow might not work in other operative systems or Ubuntu versions. The recommended way to procceed is to setup a virtual machine using virtualbox and an instance of Ubuntu 17.10. 
+This README describes how to setup the development environemnt for LBAW using Ubuntu 17.10. Some of the instructions bellow might not work in other operating systems or Ubuntu versions. The recommended way to procceed is to setup a virtual machine using virtualbox and an instance of Ubuntu 17.10. 
 
-You might adapt these instructions to othe operative systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10. 
+You might adapt these instructions to other operating systems or Ubuntu versions but the LBAW staff will not be able to help you outside Ubuntu 17.10. 
 
 ## Installing the Software Dependencies
 
@@ -27,16 +27,16 @@ You will also need to install the latest version of docker and docker compose, a
     
 # Setting up the Development repository    
 
-At this time, you are ready to start working on your project. You should have your own repository and this repository in the same folder and then copy the contents of this repository to your own:
+At this time, you are ready to start working on your project. You should have your own repository and a copy of this this repository in the same folder in your machine and then copy the contents of this repository to your own:
 
     git clone git@github.com:<YOUR GITHUB>/lbaw17GG # if not yet available locally
     git clone git@github.com:lbaw-admin/lbaw-laravel.git
-    rm -rf lbaw-laravel/.git  # Remove the git folder
-    cd lbaw17GG
+    rm -rf lbaw-laravel/.git  # remove the git folder
+    cd lbaw17GG # goto your repository
     git checkout master # make sure you are using the master branch
-    cp -r ../lbaw-laravel/ . # You replace lbaw17GG with your group number or appropriare repository folder
-    git add .
-    git commit -m "base laravel structure"
+    cp -r ../lbaw-laravel/ . # copy all the demo files
+    git add .  # add the new files to your repository
+    git commit -m "Base laravel structure"
     git push origin master 
 
 **Tip**: If you're having trouble cloning from GitHub using *ssh*, check [this](https://help.github.com/articles/connecting-to-github-with-ssh/).
