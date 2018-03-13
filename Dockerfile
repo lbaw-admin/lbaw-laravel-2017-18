@@ -12,7 +12,8 @@ RUN chown -R www-data:www-data /var/www/
 COPY ./etc/php/php.ini /usr/local/etc/php/conf.d/php.ini
 COPY ./etc/nginx/default.conf /etc/nginx/sites-enabled/default
 COPY .env_production /var/www/.env
+COPY docker_run.sh /docker_run.sh
 RUN mkdir /var/run/php
 
 # Start command
-CMD /usr/sbin/php-fpm7.1 -D; nginx -g "daemon off;"
+CMD sh /docker_run.sh
