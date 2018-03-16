@@ -196,7 +196,7 @@ snippets of HTML code can be saved to be reused in other pages.
 The easiest way to use CSS is just to edit the CSS file found at *public/css/app.css*.
 
 If you prefer to use [less](http://lesscss.org/), a PHP version of the less command-line tool as
-been added to the project. In this case, edit the file at *resources/less/app.less* instead and
+been added to the project. In this case, edit the file at *resources/assets/less/app.less* instead and
 keep the following command running in a shell window so that any changes to this file can be
 compiled into the public CSS file:
 
