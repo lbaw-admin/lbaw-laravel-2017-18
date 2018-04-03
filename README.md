@@ -33,16 +33,22 @@ At this time, you are ready to start working on your project. You should have yo
 
     # clone the group repository, if not yet available locally
     git clone git@github.com:<YOUR GITHUB>/lbaw17GG 
+    
     # clone the demo repository
     git clone git@github.com:lbaw-admin/lbaw-laravel.git
+    
     # remove the git folder from the demo
     rm -rf lbaw-laravel/.git
+    
     # goto your repository
     cd lbaw17GG
+    
     # make sure you are using the master branch
     git checkout master 
+    
     # copy all the demo files
-    cp -r ../lbaw-laravel/ .
+    cp -r ../lbaw-laravel/. .
+    
     # add the new files to your repository
     git add .  
     git commit -m "Base laravel structure"
